@@ -3,13 +3,15 @@ import React, { Component } from 'react'
 class Book extends Component {
   render() {
     let book = this.props.book;
-    let displayedThumbnail = book.imageLinks ? book.imageLinks.smallThumbnail : ''
+    let image = book.imageLinks ? book.imageLinks.smallThumbnail : ''
 
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${displayedThumbnail}")` }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${image}")` }}></div>
           <div className="book-shelf-changer">
+
+            {/* When a new value is selected for a book's shelf, update the value &place that book on the corresponing shelf. */}
             <select value={this.props.shelf} onChange={(e) => { this.props.updateShelf(book, e.target.value) }}>
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>

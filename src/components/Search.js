@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import Book from './Book'
 import * as BooksAPI from '../BooksAPI'
 
-
 class Search extends Component {
   state = {
     query : '',
@@ -19,6 +18,7 @@ class Search extends Component {
 
   updateSearchedBooks = (query) => {
 
+    // If a query comes back with an error, display a blank array; if not, update the state
     if (query) {
       BooksAPI.search(query).then((searchedBooks) => {
         if (searchedBooks.error) {
@@ -45,6 +45,8 @@ class Search extends Component {
         <div className="search-books-results">
           <ol className="books-grid">
             {              
+              // If a book in the search results already placed in a shelf, that value should already be selected. 
+              // If it isn't, its value should be 'none'
               this.state.searchedBooks.map(searchedBook => {
                 let shelf = 'none';
                 this.props.books.map((book) => ( book.id === searchedBook.id ? shelf = book.shelf : ''))

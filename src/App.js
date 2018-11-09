@@ -5,8 +5,6 @@ import * as BooksAPI from './BooksAPI'
 import { Route } from 'react-router-dom'
 import './App.css'
 
-// TODO: Add comments
-
 class BooksApp extends React.Component {
 
   state = {
@@ -17,16 +15,19 @@ class BooksApp extends React.Component {
     BooksAPI.getAll().then(books => this.setState({books}))
   }
 
+  // After component mounts, update the state of books
   componentDidMount() {
     this.setBooksState()
   }
 
+  // Update a book's shelf then update the state of books
   updateShelf = (book, shelf) => {    
     BooksAPI.update(book, shelf)          
 
     this.setBooksState()
   }
 
+  // render application
   render() {    
     return (
       <div className="app">
