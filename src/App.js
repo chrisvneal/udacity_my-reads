@@ -5,29 +5,38 @@ import * as BooksAPI from './BooksAPI'
 import { Route } from 'react-router-dom'
 import './App.css'
 
+// TODO: Add comments
+
 class BooksApp extends React.Component {
 
   state = {
     books : []
   }
 
-  componentDidMount() {
+  setBooksState = () => {
     BooksAPI.getAll().then(books => this.setState({books}))
+  }
+
+  componentDidMount() {
+    this.setBooksState()
   }
 
   updateShelf = (book, shelf) => {    
     BooksAPI.update(book, shelf)          
 
-    BooksAPI.getAll().then(books => this.setState({books}))
+    this.setBooksState()
   }
+
   render() {    
     return (
       <div className="app">
-        <Route exact path="/" render={() => ( <ListBooks books={this.state.books} updateShelf={this.updateShelf} /> ) } />
-        <Route path="/search" render={() => ( <Search updateShelf={this.updateShelf} books={this.state.books} /> )} />      
+        <Route exact path="/" render={() => ( <ListBooks books={this.state.books} updateShelf={this.updateShelf} /> )} />
+        <Route path="/search" render={() => ( <Search books={this.state.books} updateShelf={this.updateShelf} /> )} />      
       </div>
     )
   }
 }
 
 export default BooksApp
+
+

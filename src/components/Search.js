@@ -19,7 +19,6 @@ class Search extends Component {
 
   updateSearchedBooks = (query) => {
 
-
     if (query) {
       BooksAPI.search(query).then((searchedBooks) => {
         if (searchedBooks.error) {
@@ -31,20 +30,10 @@ class Search extends Component {
       })
     } else {
       this.setState({searchedBooks : []})
-    }
-
-
-
-    
+    }    
   }
 
   render() {
-
-    // if (this.state.query) {
-
-    // } else {
-    //   this.setState({searchedBooks})
-    // }
     return (
       <div className="search-books">
         <div className="search-books-bar">
