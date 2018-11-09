@@ -1,6 +1,6 @@
 import React from 'react'
-// import Search from './components/Search'
-import ListBooks from './components/ListBooks'
+import Search from './components/Search'
+// import ListBooks from './components/ListBooks'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
@@ -24,8 +24,8 @@ class BooksApp extends React.Component {
   render() {    
     return (
       <div className="app">
-      <ListBooks books={this.state.books} updateShelf={this.updateShelf}/>
-      {/* <Search updateShelf={this.updateShelf}/> */}
+      {/* <ListBooks books={this.state.books} updateShelf={this.updateShelf}/> */}
+      <Search updateShelf={this.updateShelf}/>
       </div>
     )
   }
