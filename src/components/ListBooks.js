@@ -16,7 +16,7 @@ class ListBooks extends Component {
                     <ol className="books-grid">
                     {this.props.books.filter(book => book.shelf === 'currentlyReading').map(returnedBook => (
                         <li key={returnedBook.id}>
-                          <Book book={returnedBook}/>
+                          <Book book={returnedBook} updateShelf={this.props.updateShelf} shelf="currentlyReading"/>
                         </li> 
                       ))}                    
                     </ol>
@@ -28,7 +28,7 @@ class ListBooks extends Component {
                     <ol className="books-grid">
                       {this.props.books.filter(book => book.shelf === 'wantToRead').map(returnedBook => (
                         <li key={returnedBook.id}>
-                          <Book book={returnedBook}/>
+                          <Book book={returnedBook} updateShelf={this.props.updateShelf} shelf="wantToRead"/>
                         </li> 
                       ))}                                           
                     </ol>
@@ -40,7 +40,7 @@ class ListBooks extends Component {
                     <ol className="books-grid">
                     {this.props.books.filter(book => book.shelf === 'read').map(returnedBook => (
                         <li key={returnedBook.id}>
-                          <Book book={returnedBook}/>
+                          <Book book={returnedBook} updateShelf={this.props.updateShelf} shelf="read"/>
                         </li> 
                       ))}                     
                     </ol>
