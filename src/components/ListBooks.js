@@ -14,9 +14,9 @@ class ListBooks extends Component {
                   <h2 className="bookshelf-title">Currently Reading</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                    {this.props.books.filter(book => book.shelf === 'currentlyReading').map(book => (
-                        <li key={book.id}>
-                          <Book />
+                    {this.props.books.filter(book => book.shelf === 'currentlyReading').map(returnedBook => (
+                        <li key={returnedBook.id}>
+                          <Book book={returnedBook}/>
                         </li> 
                       ))}                    
                     </ol>
@@ -26,9 +26,9 @@ class ListBooks extends Component {
                   <h2 className="bookshelf-title">Want to Read</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                      {this.props.books.filter(book => book.shelf === 'wantToRead').map(book => (
-                        <li key={book.id}>
-                          <Book />
+                      {this.props.books.filter(book => book.shelf === 'wantToRead').map(returnedBook => (
+                        <li key={returnedBook.id}>
+                          <Book book={returnedBook}/>
                         </li> 
                       ))}                                           
                     </ol>
@@ -38,9 +38,9 @@ class ListBooks extends Component {
                   <h2 className="bookshelf-title">Read</h2>
                   <div className="bookshelf-books">
                     <ol className="books-grid">
-                    {this.props.books.filter(book => book.shelf === 'read').map(book => (
-                        <li key={book.id}>
-                          <Book />
+                    {this.props.books.filter(book => book.shelf === 'read').map(returnedBook => (
+                        <li key={returnedBook.id}>
+                          <Book book={returnedBook}/>
                         </li> 
                       ))}                     
                     </ol>
