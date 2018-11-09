@@ -49,14 +49,8 @@ class Search extends Component {
       <div className="search-books">
         <div className="search-books-bar">
           <Link className="close-search" to="/">Close</Link>
-          <div className="search-books-input-wrapper">
-            
-            <input 
-            type="text" 
-            placeholder="Search by title or author" 
-            value={this.state.query} 
-            onChange={(e) => { this.updateQuery(e.target.value) }}/>
-
+          <div className="search-books-input-wrapper">            
+            <input type="text" placeholder="Search by title or author" value={this.state.query} onChange={(e) => { this.updateQuery(e.target.value) }}/>
           </div>
         </div>
         <div className="search-books-results">
@@ -64,21 +58,11 @@ class Search extends Component {
             {              
               this.state.searchedBooks.map(searchedBook => {
                 let shelf = 'none';
-
-                this.props.books.map((book) => (
-                  book.id === searchedBook.id ? shelf = book.shelf : ''
-                ) )
+                this.props.books.map((book) => ( book.id === searchedBook.id ? shelf = book.shelf : ''))
                 
-                return (
-              <li key={searchedBook.id}>  <Book book={searchedBook} updateShelf={this.props.updateShelf} shelf={shelf}/>     </li>
-
-                )
-
-
-
-               } )}
-
-
+                return ( <li key={searchedBook.id}>  <Book book={searchedBook} updateShelf={this.props.updateShelf} shelf={shelf}/> </li> )
+              })
+            }
           </ol>
         </div>
       </div>
