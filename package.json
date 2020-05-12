@@ -1,11 +1,22 @@
 {
   "dependencies": {
+    "acorn": "^7.2.0",
+    "braces": "^3.0.2",
     "escape-string-regexp": "^1.0.5",
+    "eslint": "^7.0.0",
+    "handlebars": "^4.7.6",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.15",
+    "mem": "^6.1.0",
+    "minimist": "^1.2.5",
+    "mixin-deep": "^2.0.1",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router-dom": "^4.3.1",
-    "sort-by": "^1.2.0"
+    "set-value": "^3.0.2",
+    "sort-by": "^1.2.0",
+    "webpack-dev-server": "^3.11.0"
   },
   "devDependencies": {
     "react-scripts": "1.1.4"
